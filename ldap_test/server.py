@@ -72,7 +72,7 @@ def run_jvm_server(gateway_port=DEFAULT_GATEWAY_PORT):
         raise Exception("'java' executable not found in system path!")
 
     try:
-        return subprocess.Popen("exec %s -jar %s --port %s" % (
+        return subprocess.Popen('"%s" -jar "%s" --port "%s"' % (
             jre_executable,
             JVM_SERVER_BIN,
             gateway_port), shell=True)
